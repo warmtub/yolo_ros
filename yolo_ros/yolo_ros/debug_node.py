@@ -354,7 +354,7 @@ class DebugNode(LifecycleNode):
             cv_image = self.draw_keypoints(cv_image, detection)
 
             if detection.bbox3d.frame_id:
-                marker = self.create_bb_marker(detection, color)
+                marker = self.create_bb_marker(detection, color[::-1])
                 marker.header.stamp = img_msg.header.stamp
                 marker.id = len(bb_marker_array.markers)
                 bb_marker_array.markers.append(marker)
